@@ -4,7 +4,7 @@
 
 /*!=========================================================================
  *  CSS Background Generator
- *  v2.0.1
+ *  v2.0.2
  *
  *  http://www.virtuosoft.eu/tools/css-gradient-generator/
  *
@@ -354,12 +354,6 @@ var CSSGradientEditor = function(container, options) {
 
         layout = getConfig("config_layout");
 
-        if (layoutneededforgradient + "_" + layout === lastlayoutstate) {
-            return;
-        }
-
-        lastlayoutstate = layoutneededforgradient + "_" + layout;
-
         elements.layoutselectoreasy.removeClass("active");
         elements.layoutselectoradvanced.removeClass("active");
         elements.layoutselectorexpert.removeClass("active");
@@ -379,39 +373,61 @@ var CSSGradientEditor = function(container, options) {
             }
         }
 
-        elements.warningadvanced.hide();
-        elements.warningexpert.hide();
-
         checkiflayoutcanchange = false;
 
         if (layoutneededforgradient > layout) {
             checkiflayoutcanchange = true;
             if (layoutneededforgradient === LAYOUT_ADVANCED) {
-                elements.warningadvanced.show();
+                if (!elements.warningadvanced.is(":visible")) {
+                    elements.warningadvanced.show();
+                }
             }
             else {
-                elements.warningexpert.show();
+                if (!elements.warningexpert.is(":visible")) {
+                    elements.warningexpert.show();
+                }
             }
 
             layout = layoutneededforgradient;
         }
+        else {
+            if (elements.warningadvanced.is(":visible")) {
+                elements.warningadvanced.hide();
+            }
+            if (elements.warningexpert.is(":visible")) {
+                elements.warningexpert.hide();
+            }
+        }
+
+        var nowchanged = false;
 
         switch(layout) {
             case LAYOUT_SIMPLE:
-                container.removeClass("layout-advanced layout-expert");
-                container.addClass("layout-simple");
+                if (!container.hasClass("layout-simple")) {
+                    nowchanged = true;
+                    container.removeClass("layout-advanced layout-expert");
+                    container.addClass("layout-simple");
+                }
                 break;
             case LAYOUT_ADVANCED:
-                container.removeClass("layout-simple layout-expert");
-                container.addClass("layout-advanced");
+                if (!container.hasClass("layout-advanced")) {
+                    nowchanged = true;
+                    container.removeClass("layout-simple layout-expert");
+                    container.addClass("layout-advanced");
+                }
                 break;
             case LAYOUT_EXPERT:
-                container.removeClass("layout-simple layout-advanced");
-                container.addClass("layout-expert");
+                if (!container.hasClass("layout-expert")) {
+                    nowchanged = true;
+                    container.removeClass("layout-simple layout-advanced");
+                    container.addClass("layout-expert");
+                }
                 break;
         }
 
-        renderAll();
+        if (nowchanged) {
+            renderAll();
+        }
     }
 
     function updateInputValues() {
@@ -4128,6 +4144,8 @@ var CSSGradientEditor = function(container, options) {
         if (desiredlayout >= layout) {
             return;
         }
+
+        lastlayoutstate = false;
 
         if (getPreference("gradient_type") === "linear") {
             if (getPreference("gradient_direction") === "angle") {
