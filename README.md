@@ -1,4 +1,4 @@
-# CSS Background Editor
+# CSS Gradient Generator
 
 CSS gradient generator with the best browser support. Three different layouts to meet Your requirement (from simple linear to complex radial gradients).
 
