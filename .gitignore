@@ -1,0 +1,8 @@
+.hg
+.git
+.hgignore
+.hgtags
+nbproject
+index_demo_site.html
+_gradients
+
