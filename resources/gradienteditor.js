@@ -4,7 +4,7 @@
 
 /*!=========================================================================
  *  CSS Background Generator
- *  v2.0.3
+ *  v2.0.4
  *
  *  http://www.virtuosoft.eu/tools/css-gradient-generator/
  *
@@ -121,7 +121,8 @@ var CSSGradientEditor = function(container, options) {
             layoutselectorexpert: $(".css-gradient-editor-layout-expert"),
             warningadvanced: $(".layout-warning-advanced"),
             warningexpert: $(".layout-warning-expert"),
-            loaddefaults: $(".loaddefaults", "#importmodal")
+            loaddefaults: $(".loaddefaults", "#importmodal"),
+            gradientpropertiespanel: $(".panel.gradient-properties", container)
         },
         settings = $.extend({
             customswatchesnameprefix: 'cssgradienteditor',
@@ -975,13 +976,29 @@ var CSSGradientEditor = function(container, options) {
             return;
         }
 
-        var scrolltop = $(document).scrollTop(),
-            previewtop = elements.previewcontainer.offset().top,
-            difference = scrolltop - previewtop,
+        var sticky = true,
+            previewoffset = elements.previewcontainer.offset(),
+            gradientpropertiesoffset = elements.gradientpropertiespanel.offset(),
             viewportheight = $(window).height(),
+            gradientpropertiesbottom = elements.gradientpropertiespanel.height() + gradientpropertiesoffset.top;
+
+        if (gradientpropertiesbottom - previewoffset.top < viewportheight) {
+            sticky = false;
+        }
+
+        var scrolltop = $(document).scrollTop(),
+            difference = scrolltop - previewoffset.top,
             maxheight = Math.round(viewportheight / 3);
 
-        if (difference > 0) {
+        if (scrolltop + maxheight > gradientpropertiesbottom) {
+            sticky = false;
+        }
+
+        if (difference < 0) {
+            sticky = false;
+        }
+
+        if (sticky) {
             if (previewheightbeforestickiness === false) {
                 previewheightbeforestickiness = elements.previewarea.height();
                 elements.previewarea.addClass("preview-sticky");
