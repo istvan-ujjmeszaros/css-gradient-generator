@@ -617,6 +617,7 @@ h1, h2, h3, h4, h5, h6 {
 .css-gradient-editor-container .content.css-gradient-editor-swatches {
     max-height: 197px;
     overflow: auto;
+    margin-right: -6px;
 }
 
 .css-gradient-editor-container .css-gradient-editor-swatches ul {

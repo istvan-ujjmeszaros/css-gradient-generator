@@ -4,7 +4,7 @@
 
 /*!=========================================================================
  *  CSS Background Generator
- *  v2.0.5
+ *  v2.0.6
  *
  *  http://www.virtuosoft.eu/tools/css-gradient-generator/
  *
@@ -998,7 +998,7 @@ var CSSGradientEditor = function(container, options) {
             sticky = false;
         }
 
-        if (sticky && !elements.previewarea.hasClass("preview-sticky")) {
+        if (sticky && (!elements.previewarea.hasClass("preview-sticky") || buggyfixed)) {
             if (previewheightbeforestickiness === false) {
                 previewheightbeforestickiness = elements.previewarea.height();
                 elements.previewcontainer.height(elements.previewarea.height());
