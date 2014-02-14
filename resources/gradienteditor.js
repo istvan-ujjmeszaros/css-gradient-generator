@@ -4,7 +4,7 @@
 
 /*!=========================================================================
  *  CSS Background Generator
- *  v2.0.4
+ *  v2.0.5
  *
  *  http://www.virtuosoft.eu/tools/css-gradient-generator/
  *
@@ -998,12 +998,13 @@ var CSSGradientEditor = function(container, options) {
             sticky = false;
         }
 
-        if (sticky) {
+        if (sticky && !elements.previewarea.hasClass("preview-sticky")) {
             if (previewheightbeforestickiness === false) {
                 previewheightbeforestickiness = elements.previewarea.height();
+                elements.previewcontainer.height(elements.previewarea.height());
                 elements.previewarea.addClass("preview-sticky");
                 elements.resizehandler.hide();
-                elements.previewcontainer.height(previewheightbeforestickiness);
+                //elements.previewcontainer.height(previewheightbeforestickiness);
 
                 if (previewheightbeforestickiness > maxheight) {
                     elements.previewarea.height(maxheight);
@@ -1023,7 +1024,7 @@ var CSSGradientEditor = function(container, options) {
                 elements.previewarea.css("top", difference);
             }
         }
-        else {
+        else if (!sticky && elements.previewarea.hasClass("preview-sticky")) {
             if (previewheightbeforestickiness !== false) {
                 elements.previewarea.removeClass("preview-sticky");
                 elements.previewarea.css("top", 0);
