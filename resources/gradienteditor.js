@@ -4,7 +4,7 @@
 
 /*!=========================================================================
  *  CSS Background Generator
- *  v2.0.2
+ *  v2.0.3
  *
  *  http://www.virtuosoft.eu/tools/css-gradient-generator/
  *
@@ -64,7 +64,6 @@ var CSSGradientEditor = function(container, options) {
         gradientready = false,
         layout,
         checkiflayoutcanchange = false,
-        lastlayoutstate = false,
         supportedrendermodes = {
             noprefix: false,
             svg: false,
@@ -379,11 +378,13 @@ var CSSGradientEditor = function(container, options) {
             checkiflayoutcanchange = true;
             if (layoutneededforgradient === LAYOUT_ADVANCED) {
                 if (!elements.warningadvanced.is(":visible")) {
+                    elements.warningexpert.hide();
                     elements.warningadvanced.show();
                 }
             }
             else {
                 if (!elements.warningexpert.is(":visible")) {
+                    elements.warningadvanced.hide();
                     elements.warningexpert.show();
                 }
             }
@@ -4144,8 +4145,6 @@ var CSSGradientEditor = function(container, options) {
         if (desiredlayout >= layout) {
             return;
         }
-
-        lastlayoutstate = false;
 
         if (getPreference("gradient_type") === "linear") {
             if (getPreference("gradient_direction") === "angle") {
