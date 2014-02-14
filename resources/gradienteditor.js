@@ -4,7 +4,7 @@
 
 /*!=========================================================================
  *  CSS Background Generator
- *  v2.0.6
+ *  v2.0.7
  *
  *  http://www.virtuosoft.eu/tools/css-gradient-generator/
  *
@@ -3913,7 +3913,7 @@ var CSSGradientEditor = function(container, options) {
     }
 
     function gradientSwatchIsUnique(gradient) {
-        return swatches.indexOf(gradient) == -1;
+        return (swatches.indexOf(gradient) === -1 && swatches.indexOf(convertToNewGradientFormat(gradient)) === -1);
     }
 
     function addCurrentGradientToSwatches() {
@@ -3931,7 +3931,7 @@ var CSSGradientEditor = function(container, options) {
             return false;
         }
 
-        swatches.unshift(gradient);
+        swatches.unshift(convertToNewGradientFormat(gradient));
 
         storeSwatches();
 
