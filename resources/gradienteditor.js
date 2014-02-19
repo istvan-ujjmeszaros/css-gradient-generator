@@ -4,7 +4,7 @@
 
 /*!=========================================================================
  *  CSS Background Generator
- *  v2.0.7
+ *  v2.0.8
  *
  *  http://www.virtuosoft.eu/tools/css-gradient-generator/
  *

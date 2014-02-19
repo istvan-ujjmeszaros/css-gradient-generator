@@ -997,8 +997,22 @@ css-gradient-editor-container.layout-simple .hide-element {
     }
 }
 
+.gradient-preferences-easy,
+.gradient-preferences-advanced {
+    display: none;
+}
+
 .layout-simple .gradient-preferences-advanced {
     display: none;
+}
+
+.layout-simple .gradient-preferences-easy {
+    display: block;
+}
+
+.layout-advanced .gradient-preferences-advanced,
+.layout-expert .gradient-preferences-advanced {
+    display: block;
 }
 
 .layout-advanced .gradient-preferences-easy,
