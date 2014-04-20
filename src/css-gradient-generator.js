@@ -14,6 +14,9 @@ var CSSGradientEditor = function(container, options) {
 
   var MIN = -3000,
       MAX = 3000,
+      _throttleDelay = 100,
+      _scrollThrottleTimer = null,
+      _lastScrollHandlerRun = 0,
       colorStops = [],
       undoArray = [],
       undoIndex = -1,
@@ -1077,7 +1080,17 @@ var CSSGradientEditor = function(container, options) {
     });
 
     $(document).scroll(function() {
-      handlePreviewStickyState();
+      if (new Date().getTime() - _lastScrollHandlerRun > _throttleDelay) {
+        _lastScrollHandlerRun = new Date().getTime();
+        handlePreviewStickyState();
+      }
+      else {
+        clearTimeout(_scrollThrottleTimer);
+        _scrollThrottleTimer = setTimeout(function() {
+          _lastScrollHandlerRun = new Date().getTime();
+          handlePreviewStickyState();
+        }, _throttleDelay);
+      }
     });
 
     $(document).on('click', '.force-layout-change', function(ev) {
