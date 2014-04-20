@@ -3,6 +3,7 @@
 .hgignore
 .hgtags
 nbproject
+node_modules
 index_demo_site.html
 _gradients
 
