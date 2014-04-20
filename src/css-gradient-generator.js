@@ -176,6 +176,7 @@ var CSSGradientEditor = function(container, options) {
     config_colorpicker_swatches: false,
     config_fallbackwidth: '',
     config_fallbackheight: '',
+    config_mixedstoppointunits: 'enabled',
     config_generation_bgcolor: true,
     config_generation_iefilter: true,
     config_generation_svg: true,
@@ -1354,6 +1355,7 @@ var CSSGradientEditor = function(container, options) {
 
     $('.css-gradient-editor-stoppointlist', container).on('click', '.bootstrap-touchspin-postfix', function() {
       var $this = $(this),
+          $row = $this.closest('.css-gradient-editor-stoppointdata'),
           newunit;
 
       if ($this.html() === '%') {
@@ -1365,13 +1367,19 @@ var CSSGradientEditor = function(container, options) {
 
       lastunit = newunit;
 
-      $('.bootstrap-touchspin-postfix', elements.colorstopslist).each(function() {
-        var $this = $(this);
+      if (getConfig('config_mixedstoppointunits') === 'enabled') {
         $this.html(newunit);
-        $this.parents('.css-gradient-editor-stoppointdata').data('unit', newunit);
-      });
-
-      setColorStopData(false, 'unit', newunit);
+        $row.data('unit', newunit);
+        setColorStopData($this.closest('.css-gradient-editor-stoppointdata').data('index'), 'unit', newunit);
+      }
+      else {
+        $('.bootstrap-touchspin-postfix', elements.colorstopslist).each(function() {
+          var $this = $(this);
+          $this.html(newunit);
+          $this.parents('.css-gradient-editor-stoppointdata').data('unit', newunit);
+        });
+        setColorStopData(false, 'unit', newunit);
+      }
 
       renderColorStopMarkers();
       renderGradient();
@@ -2150,19 +2158,21 @@ var CSSGradientEditor = function(container, options) {
       $('<button type="button" class="btn btn-sm pull-right css-gradient-editor-stop-point-delete"><span class="pngicon-remove2"></span></button><input class="css-gradient-editor-stop-point-color input-sm" type="text" value="' + getRenderColor(el) + '"> <input class="css-gradient-editor-stop-point-position input-sm" type="text" value="' + el.position + '">').appendTo(row);
 
       row.data(el);
+
+      $('input.css-gradient-editor-stop-point-position', row).TouchSpin({
+        min: MIN,
+        max: MAX,
+        postfix: el.unit,
+        decimals: settings.positiondecimals,
+        step: Math.pow(0.1, settings.positiondecimals)
+      });
     }
 
     $('.css-gradient-editor-stop-point-delete', elements.colorstopslist).on('click', function() {
       removeColorStop($(this).closest('.css-gradient-editor-stoppointdata').data('index'));
     });
 
-    $('input.css-gradient-editor-stop-point-position', elements.colorstopslist).TouchSpin({
-      min: MIN,
-      max: MAX,
-      postfix: lastunit,
-      decimals: settings.positiondecimals,
-      step: Math.pow(0.1, settings.positiondecimals)
-    }).on('change', function() {
+    $('input.css-gradient-editor-stop-point-position', elements.colorstopslist).on('change', function() {
       var $this = $(this);
 
       var index = $this.closest('.css-gradient-editor-stoppointdata').data('index');
