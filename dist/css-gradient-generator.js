@@ -12,9 +12,7 @@
  *      Tibor Szász - https://github.com/kowdermeister
  *      László Sotus - https://github.com/Lacisan
  *
- *  Under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 License
- *  To view a copy of this license, visit
- *  http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US.
+ *  Licensed under the Apache License, Version 2.0
  */
 
 var CSSGradientEditor = function(container, options) {
