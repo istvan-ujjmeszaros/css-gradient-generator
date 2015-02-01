@@ -5,7 +5,3 @@ CSS gradient generator with the best browser support. Three different layouts to
 - [Website](http://www.virtuosoft.eu/tools/css-gradient-generator/)
 
 Please report issues and feel free to make feature suggestions as well.
-
-## License
-
-This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US.
