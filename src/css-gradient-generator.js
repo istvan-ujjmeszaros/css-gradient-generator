@@ -115,6 +115,8 @@ var CSSGradientEditor = function(container, options) {
       't=linear,d=bottom,r=on|e2e2e2/0/%,dbdbdb/50/%,d1d1d1/51/%,fefefe/100/%',
       't=linear,d=bottom,r=on|accdd4/0/%,189ab1/50/%,087b95/51/%,70c0d1/100/%',
       't=linear,d=bottom,r=on|48556c/0/%,1b212b/50/%,141922/51/%,353b45/100/%',
+      't=linear,d=bottom,r=on|010000/0/%,010100/16.7/%,000100/33.3/%,000101/50/%,000001/66.7/%,010001/83.3/%,010000/100/%',
+      't=linear,d=bottom,r=on|fffefe/0/%,fffffe/16.7/%,fefffe/33.3/%,feffff/50/%,fefeff/66.7/%,fffeff/83.3/%,fffefe/100/%',
       't=linear,d=bottom,r=on|808080/0/%,5b5b5b/65.6/%,a9a9a9/100/%',
       't=linear,d=bottom+right,r=on|000000/0/%,ffffff/100/%',
       't=linear,d=bottom+right,r=on|000000/0/%,00000000/100/%',
@@ -592,7 +594,7 @@ var CSSGradientEditor = function(container, options) {
       cielch.h += coloroffset.hue;
       cielch.h = Math.abs(cielch.h + 360) % 360;
 
-      cielch.c += coloroffset.saturation * 1.44;
+      cielch.c += coloroffset.saturation * 1.5;
       cielch.l += coloroffset.lightness * 1.01;
 
       if (cielch.c < 0) {
@@ -2688,7 +2690,7 @@ var CSSGradientEditor = function(container, options) {
           else if (angle < 135) {
             direction = 'right';
           }
-          else if (angle < 160) {
+          else if (angle < 240) {
             direction = 'bottom';
           }
           else {
