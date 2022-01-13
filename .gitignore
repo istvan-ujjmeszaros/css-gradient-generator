@@ -2,6 +2,7 @@
 .git
 .hgignore
 .hgtags
+.idea
 nbproject
 node_modules
 index_demo_site.html
