@@ -1513,11 +1513,8 @@ var CSSGradientEditor = function(container, options) {
       updateStickyPreviewHeight();
     });
 
-    elements.cssoutput.on('click', function(e) {
+    elements.cssoutput.focus(function() {
       selectAllText($(this));
-
-      e.preventDefault();
-      e.stopPropagation();
     });
 
     elements.exportallmodal.on('show.bs.modal', function() {
@@ -3515,10 +3512,6 @@ var CSSGradientEditor = function(container, options) {
     refreshCssOutput();
 
     elements.cssoutput.text(cssoutput);
-
-    var brush = new SyntaxHighlighter.brushes.CSS();
-    brush.init({toolbar: false, gutter: false});
-    elements.cssoutput.html(brush.getHtml(cssoutput));
     elements.cssoutput.data('output', cssoutput);
   }
 
