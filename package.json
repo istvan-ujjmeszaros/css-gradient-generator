@@ -11,6 +11,7 @@
     "type": "git",
     "url": "https://github.com/Virtuosoft/css-gradient-generator.git"
   },
+  "license": "CC BY-NC-SA 4.0",
   "homepage": "http://www.virtuosoft.eu/tools/css-gradient-generator/",
   "version": "1.0.0",
   "devDependencies": {
