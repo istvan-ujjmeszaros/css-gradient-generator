@@ -9,21 +9,21 @@
     "responsive",
     "widget"
   ],
-  "version": "2.1.0",
+  "version": "2.2.0",
   "author": {
-    "name": "Virtuosoft",
-    "url": "https://github.com/Virtuosoft"
+    "name": "Istvan Ujj-Meszaros",
+    "url": "https://github.com/istvan-ujjmeszaros"
   },
   "licenses": [
     {
-      "type": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0",
-      "url": "http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US."
+      "type": "CC BY-NC-SA 4.0",
+      "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US"
     }
   ],
-  "homepage": "http://www.virtuosoft.eu/tools/css-gradient-generator/",
-  "demo": "http://www.virtuosoft.eu/tools/css-gradient-generator/",
-  "docs": "http://www.virtuosoft.eu/tools/css-gradient-generator/",
-  "download": "https://github.com/Virtuosoft/css-gradient-generator/archive/master.zip",
+  "homepage": "https://www.virtuosoft.eu/tools/css-gradient-generator/",
+  "demo": "https://www.virtuosoft.eu/tools/css-gradient-generator/",
+  "docs": "https://www.virtuosoft.eu/tools/css-gradient-generator/",
+  "download": "https://github.com/istvan-ujjmeszaros/css-gradient-generator/archive/master.zip",
   "dependencies": {
     "jquery": ">=1.7"
   }

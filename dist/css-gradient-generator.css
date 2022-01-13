@@ -1,8 +1,8 @@
 /*
  *  CSS Gradient Generator
- *  v2.1.0
+ *  v2.2.0
  *  CSS gradient generator with the best browser support. Three different layouts to meet Your requirement (from simple linear to complex radial gradients).
- *  http://www.virtuosoft.eu/tools/css-gradient-generator/
+ *  https://www.virtuosoft.eu/tools/css-gradient-generator/
  *
  *  Made by Virtuosoft:
  *      István Ujj-Mészáros - https://github.com/istvan-ujjmeszaros
@@ -12,7 +12,7 @@
  *      Tibor Szász - https://github.com/kowdermeister
  *      László Sotus - https://github.com/Lacisan
  *
- *  Under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 License
+ *  Under CC BY-NC-SA 4.0 License
  *  To view a copy of this license, visit
  *  http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US.
  */

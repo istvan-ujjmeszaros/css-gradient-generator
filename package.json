@@ -3,17 +3,17 @@
   "title": "CSS Gradient Generator",
   "description": "CSS gradient generator with the best browser support. Three different layouts to meet Your requirement (from simple linear to complex radial gradients).",
   "author": {
-    "name": "Virtuosoft",
-    "url": "https://github.com/Virtuosoft"
+    "name": "Istvan Ujj-Meszaros",
+    "url": "https://github.com/istvan-ujjmeszaros"
   },
   "contributors": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Virtuosoft/css-gradient-generator.git"
+    "url": "https://github.com/istvan-ujjmeszaros/css-gradient-generator"
   },
   "license": "CC BY-NC-SA 4.0",
-  "homepage": "http://www.virtuosoft.eu/tools/css-gradient-generator/",
-  "version": "1.0.0",
+  "homepage": "https://www.virtuosoft.eu/tools/css-gradient-generator/",
+  "version": "2.2.0",
   "devDependencies": {
     "grunt": "~1.4.1",
     "grunt-cli": "~1.4.3",
