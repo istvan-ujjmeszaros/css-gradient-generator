@@ -12,7 +12,9 @@
  *      Tibor Szász - https://github.com/kowdermeister
  *      László Sotus - https://github.com/Lacisan
  *
- *  Licensed under the Apache License, Version 2.0
+ *  Under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 License
+ *  To view a copy of this license, visit
+ *  http://creativecommons.org/licenses/by-nc-sa/4.0/deed.en_US.
  */
 
 var CSSGradientEditor = function(container, options) {
@@ -703,7 +705,7 @@ var CSSGradientEditor = function(container, options) {
 
     data = data.split('&sp=');
 
-    if (!data instanceof Array) {
+    if (!(data instanceof Array)) {
       return false;
     }
 
@@ -3957,7 +3959,7 @@ var CSSGradientEditor = function(container, options) {
     try {
       var toimport = jQuery.parseJSON(jsontext);
 
-      if (!toimport instanceof Array) {
+      if (!(toimport instanceof Array)) {
         return false;
       }
 

@@ -687,7 +687,7 @@ var CSSGradientEditor = function(container, options) {
 
     data = data.split('&sp=');
 
-    if (!data instanceof Array) {
+    if (!(data instanceof Array)) {
       return false;
     }
 
@@ -3941,7 +3941,7 @@ var CSSGradientEditor = function(container, options) {
     try {
       var toimport = jQuery.parseJSON(jsontext);
 
-      if (!toimport instanceof Array) {
+      if (!(toimport instanceof Array)) {
         return false;
       }
 
