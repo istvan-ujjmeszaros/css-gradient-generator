@@ -1,6 +1,6 @@
 /*
  *  CSS Gradient Generator
- *  v2.2.0
+ *  v2.2.1
  *  CSS gradient generator with the best browser support. Three different layouts to meet Your requirement (from simple linear to complex radial gradients).
  *  https://www.virtuosoft.eu/tools/css-gradient-generator/
  *
