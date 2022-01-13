@@ -3493,7 +3493,7 @@ var CSSGradientEditor = function(container, options) {
   function updateCssOutput() {
     refreshCssOutput();
 
-    elements.cssoutput.text(cssoutput);
+    elements.cssoutput.val(cssoutput);
     elements.cssoutput.data('output', cssoutput);
   }
 
